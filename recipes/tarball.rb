@@ -56,7 +56,6 @@ end
 # 2. Extract it
 # 3. Copy to /usr/local/cassandra, update permissions
 bash "extract #{tmp}, move it to #{node.cassandra.installation_dir}" do
-  user "root"
   cwd  "/tmp"
 
   code <<-EOS
@@ -91,11 +90,15 @@ end
   end
 end
 
-
 # 4. Install config files and binaries
+seeds = search(:node, "chef_environment:#{node.chef_environment} AND role:cassandra_server AND cassandra_cluster_name:\"#{node.cassandra.cluster_name}\"").collect{|n| n[:ipaddress]}.compact.reject{|ip| node[:ipaddress] == ip }
 %w(cassandra.yaml cassandra-env.sh).each do |f|
   template File.join(node.cassandra.conf_dir, f) do
     source "#{f}.erb"
+    variables({
+      :seeds => seeds,
+      :auto_bootstrap => seeds.any?
+    })
     owner node.cassandra.user
     group node.cassandra.user
     mode  0644

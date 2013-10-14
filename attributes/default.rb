@@ -1,7 +1,7 @@
 default[:cassandra] = {
   :cluster_name => "Test Cluster",
   :initial_token => "",
-  :version => '1.2.7',
+  :version => '2.0.1',
   :user => "cassandra",
   :jvm  => {
     :xms => 32,
@@ -14,7 +14,7 @@ default[:cassandra] = {
   :installation_dir => "/usr/local/cassandra",
   :bin_dir          => "/usr/local/cassandra/bin",
   :lib_dir          => "/usr/local/cassandra/lib",
-  :conf_dir         => "/etc/cassandra/",
+  :conf_dir         => "/usr/local/cassandra/conf",
   # commit log, data directory, saved caches and so on are all stored under the data root. MK.
   :data_root_dir    => "/var/lib/cassandra/",
   :commitlog_dir    => "/var/lib/cassandra/",
@@ -24,12 +24,12 @@ default[:cassandra] = {
   :max_heap_size    => nil,
   :heap_new_size    => nil,
   :vnodes           => false,
-  :seeds            => [],
+  :seeds            => [], # autodiscovered in tarball recipe
   :concurrent_reads => 32,
   :concurrent_writes => 32,
   :snitch           => 'SimpleSnitch'
 }
 default[:cassandra][:tarball] = {
-  :url => "http://www.eu.apache.org/dist/cassandra/#{default[:cassandra][:version]}/apache-cassandra-#{default[:cassandra][:version]}-bin.tar.gz",
-  :md5 => "b897254c99c6ba5df0d7376571a00806"
+  :url => "http://apache.ip-connect.vn.ua/cassandra/#{default[:cassandra][:version]}/apache-cassandra-#{default[:cassandra][:version]}-bin.tar.gz",
+  :md5 => "8e52eba7687fe8aa7a40a5fdce417e63"
 }

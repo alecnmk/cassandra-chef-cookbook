@@ -1,0 +1,30 @@
+{
+  "name": "cassandra",
+  "description": "Installs/Configures OpsCode Apache Cassandra",
+  "long_description": "# Apache Cassandra Chef Cookbook\n\nThis is an OpsCode Chef cookbook for Apache Cassandra ([DataStax Community Edition](http://www.datastax.com/products/community)).\n\nIt uses officially released Debian packages, provides Upstart service script but has no\nway to tweak Cassandra configuration parameters using Chef node attributes. The reason for\nthat is it was created for CI and development environments. Attributes will be used in the future,\ndoing so for single-server installations won't be difficult.\n\n\n## Apache Cassandra Version\n\nThis cookbook currently provides\n\n * Cassandra 1.2.x via tarballs\n * Cassandra 1.2.x (DataStax Community Edition) via packages.\n\n## Supported OS Distributions\n\nUbuntu 11.04, 11.10, 12.04.\n\n\n## Recipes\n\nTwo provided recipes are `cassandra::tarball` and `cassandra::datastax`. The former uses official tarballs\nand thus can be used to provision any specific version.\n\nThe latter uses DataStax Debian repository and provisions Cassandra `1.2`.\n\n\n## Attributes\n\n * `node[:cassandra][:version]` (default: `1.2.3`): version to provision\n * `node[:cassandra][:tarball][:url]` and `node[:cassandra][:tarball][:md5]` specify tarball URL and MD5 chechsum used by the `cassandra::tarball` recipe.\n * `node[:cassandra][:user]`: username Cassandra node process will use\n * `node[:cassandra][:jvm][:xms]` (default: `32`) and `node[:cassandra][:jvm][:xmx]` (default: `512`) control JVM `-Xms` and `-Xms` flag values, in megabytes (no need to add the `m` suffix)\n * `node[:cassandra][:installation_dir]` (default: `/usr/local/cassandra`): installation directory\n * `node[:cassandra][:data_root_dir]` (default: `/var/lib/cassandra`): data directory root\n * `node[:cassandra][:log_dir]` (default: `/var/log/cassandra`): log directory\n * `node[:cassandra][:rpc_address]` (default: `localhost`): address to bind the RPC interface\n\n\n## Dependencies\n\nOracleJDK 7, OpenJDK 7, OpenJDK 6 or Sun JDK 6.\n\n\n## Copyright & License\n\nMichael S. Klishin, Travis CI Development Team, 2012.\n\nReleased under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).\n",
+  "maintainer": "Michael S. Klishin",
+  "maintainer_email": "michael@defprotocol.org",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "java": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.0.0"
+}
