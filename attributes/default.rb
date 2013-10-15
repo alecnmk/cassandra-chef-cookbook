@@ -1,6 +1,5 @@
 default[:cassandra] = {
   :cluster_name => "Test Cluster",
-  :initial_token => "",
   :version => '2.0.1',
   :user => "cassandra",
   :jvm  => {
@@ -9,7 +8,9 @@ default[:cassandra] = {
   },
   :limits => {
     :memlock => 'unlimited',
-    :nofile  => 48000
+    :nofile  => 100000,
+    :nproc => 32768,
+    :as => 'unlimited'
   },
   :installation_dir => "/usr/local/cassandra",
   :bin_dir          => "/usr/local/cassandra/bin",

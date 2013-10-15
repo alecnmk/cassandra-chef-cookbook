@@ -105,13 +105,12 @@ seeds = search(:node, "chef_environment:#{node.chef_environment} AND role:cassan
   end
 end
 
-template File.join(node.cassandra.bin_dir, "cassandra-cli") do
-  source "cassandra-cli.erb"
-  owner node.cassandra.user
-  group node.cassandra.user
-  mode  0755
-end
-
+# template File.join(node.cassandra.bin_dir, "cassandra-cli") do
+#   source "cassandra-cli.erb"
+#   owner node.cassandra.user
+#   group node.cassandra.user
+#   mode  0755
+# end
 
 # 5. Symlink
 %w(cassandra cassandra-shell cassandra-cli).each do |f|

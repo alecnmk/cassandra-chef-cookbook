@@ -1,2 +1,4 @@
 <%= node.cassandra.user %>     -    nofile    <%= node.cassandra.limits.nofile %>
 <%= node.cassandra.user %>     -    memlock   <%= node.cassandra.limits.memlock %>
+<%= node.cassandra.user %>     -    nproc   <%= node.cassandra.limits.nproc %>
+<%= node.cassandra.user %>     -    as   <%= node.cassandra.limits.as %>
