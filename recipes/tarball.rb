@@ -83,6 +83,7 @@ end
 
 bash "link JNA to Cassandra's lib dir" do
   code "sudo ln -s /usr/share/java/jna.jar #{node.cassandra.lib_dir}"
+  not_if "test -f #{node.cassandra.lib_dir}/jna.jar"
 end
 
 # change ownership
