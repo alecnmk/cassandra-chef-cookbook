@@ -76,6 +76,16 @@ end
   end
 end
 
+# install JNA
+package "libjna-java" do
+  action :install
+end
+
+bash "link JNA to Cassandra's lib dir" do
+  code "sudo ln -s /usr/share/java/jna.jar #{node.cassandra.lib_dir}"
+end
+
+# change ownership
 [node.cassandra.lib_dir,
  node.cassandra.data_root_dir,
  node.cassandra.conf_dir,
