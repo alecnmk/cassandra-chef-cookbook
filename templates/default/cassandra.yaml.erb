@@ -23,7 +23,7 @@ auto_bootstrap: <%= @auto_bootstrap %>
 #
 # If you already have a cluster with 1 token per node, and wish to migrate to
 # multiple tokens per node, see http://wiki.apache.org/cassandra/Operations
-num_tokens: 256
+num_tokens: <%= node[:cassandra][:num_tokens] %>
 
 # initial_token allows you to specify tokens manually.  While you can use # it with
 # vnodes (num_tokens > 1, above) -- in which case you should provide a
@@ -201,8 +201,8 @@ saved_caches_directory: <%= File.join(node.cassandra.data_root_dir, 'saved_cache
 # you should reduce that; 16*cores works reasonably well for 1MB blobs.
 # It should be at least as large as the concurrent_writes setting.
 commitlog_sync: periodic
-commitlog_sync_period_in_ms: 10000
-# commitlog_periodic_queue_size:
+commitlog_sync_period_in_ms: 5000
+commitlog_periodic_queue_size: 4096
 
 # The size of the individual commitlog file segments.  A commitlog
 # segment may be archived, deleted, or recycled once all the data

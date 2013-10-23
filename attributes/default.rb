@@ -24,10 +24,10 @@ default[:cassandra] = {
   :rpc_address      => node[:ipaddress],
   :max_heap_size    => nil,
   :heap_new_size    => nil,
-  :vnodes           => false,
+  :num_tokens       => 256,
   :seeds            => [], # autodiscovered in tarball recipe
-  :concurrent_reads => 32,
-  :concurrent_writes => 32,
+  :concurrent_reads => 16,
+  :concurrent_writes => 16,
   :snitch           => 'SimpleSnitch'
 }
 default[:cassandra][:tarball] = {
