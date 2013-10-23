@@ -209,8 +209,6 @@ JVM_OPTS="$JVM_OPTS -XX:MaxTenuringThreshold=1"
 JVM_OPTS="$JVM_OPTS -XX:CMSInitiatingOccupancyFraction=70"
 JVM_OPTS="$JVM_OPTS -XX:+CMSIncrementalMode"
 JVM_OPTS="$JVM_OPTS -XX:+CMSIncrementalPacing"
-JVM_OPTS="$JVM_OPTS -XX:CMSIncrementalDutyCycleMin=0"
-JVM_OPTS="$JVM_OPTS -XX:+CMSIncrementalDutyCycle=10"
 JVM_OPTS="$JVM_OPTS -XX:+UseCMSInitiatingOccupancyOnly"
 JVM_OPTS="$JVM_OPTS -XX:+UseTLAB"
 # note: bash evals '1.7.x' as > '1.7' so this is really a >= 1.7 jvm check
