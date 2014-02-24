@@ -1,6 +1,6 @@
 default[:cassandra] = {
   :cluster_name => "Test Cluster",
-  :version => '2.0.1',
+  :version => '2.0.3',
   :user => "cassandra",
   :jvm  => {
     :xms => 32,
@@ -31,6 +31,6 @@ default[:cassandra] = {
   :snitch           => 'SimpleSnitch'
 }
 default[:cassandra][:tarball] = {
-  :url => "http://apache.ip-connect.vn.ua/cassandra/#{default[:cassandra][:version]}/apache-cassandra-#{default[:cassandra][:version]}-bin.tar.gz",
-  :md5 => "8e52eba7687fe8aa7a40a5fdce417e63"
+  :url => "http://apache-mirror.telesys.org.ua/cassandra/#{default[:cassandra][:version]}/apache-cassandra-#{default[:cassandra][:version]}-bin.tar.gz",
+  :md5 => "98d266fa0b84b50971e87f0c905bf2df"
 }
