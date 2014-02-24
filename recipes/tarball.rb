@@ -102,7 +102,7 @@ end
 end
 
 # 4. Install config files and binaries
-seeds = search(:node, "chef_environment:#{node.chef_environment} AND role:cassandra_server AND cassandra_cluster_name:\"#{node.cassandra.cluster_name}\"").collect{|n| n[:ipaddress]}.compact.reject{|ip| node[:ipaddress] == ip }
+seeds = search(:node, "chef_environment:#{node.chef_environment} AND role:cassandra_prod_server AND cassandra_cluster_name:\"#{node.cassandra.cluster_name}\"").collect{|n| n[:ipaddress]}.compact.reject{|ip| node[:ipaddress] == ip }
 %w(cassandra.yaml cassandra-env.sh).each do |f|
   template File.join(node.cassandra.conf_dir, f) do
     source "#{f}.erb"
